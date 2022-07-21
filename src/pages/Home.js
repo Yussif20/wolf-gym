@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Box } from "@mui/system";
 
@@ -6,14 +6,25 @@ import HeroBanner from "../components/HeroBanner";
 import SearchExercises from "../components/SearchExercises";
 import Exercises from "../components/Exercises";
 
-const home = () => {
+const Home = () => {
+  const [exercises, setExercises] = useState("all");
+  const [bodyParts, setBodyParts] = useState([]);
+
   return (
     <Box>
       <HeroBanner />
-      <SearchExercises />
-      <Exercises />
+      <SearchExercises
+        setExercises={setExercises}
+        bodyParts={bodyParts}
+        setBodyParts={setBodyParts}
+      />
+      <Exercises
+        setExercises={setExercises}
+        bodyParts={bodyParts}
+        setBodyParts={setBodyParts}
+      />
     </Box>
   );
 };
 
-export default home;
+export default Home;
